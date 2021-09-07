@@ -13,3 +13,4 @@ dash_core_components==1.17.1
 numpy==1.18.1
 python_dateutil==2.8.2
 scikit_learn==0.24.2
+gunicorn==19.3.0
