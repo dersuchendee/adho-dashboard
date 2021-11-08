@@ -4,6 +4,7 @@ from dash.dependencies import Input, Output
 from layouts import example_graph1, example_graph2, example_graph3, example_graph4, example_graph5, example_graph6, example_graph9
 from app import app
 
+
 @app.callback(
     Output("tab-content", "children"),
     Input("tabs", "active_tab"),

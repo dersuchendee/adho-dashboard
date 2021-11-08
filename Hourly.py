@@ -15,7 +15,9 @@ analytics_may = pd.read_csv("tweet_activity_metrics_ADHOrg_20210501_20210601_en.
 analytics_june = pd.read_csv("tweet_activity_metrics_ADHOrg_20210601_20210701_en.csv")
 analytics_july = pd.read_csv("tweet_activity_metrics_ADHOrg_20210701_20210801_en.csv")
 analytics_august = pd.read_csv("tweet_activity_metrics_ADHOrg_20210801_20210831_en.csv")
-frames = [analytics_april, analytics_may, analytics_june, analytics_july, analytics_august]
+analytics_september = pd.read_csv("tweet_activity_metrics_ADHOrg_20210901_20210931_en.csv")
+analytics_october = pd.read_csv("tweet_activity_metrics_ADHOrg_20211001_20211031_en.csv")
+frames = [analytics_april, analytics_may, analytics_june, analytics_july, analytics_august, analytics_september, analytics_october]
 analytics_total = pd.concat(frames)
 #create a new df keeping only the useful columns
 df_new = analytics_total[['Tweet text','time','impressions','engagements','engagement rate','retweets','replies','likes', 'user profile clicks', 'url clicks', 'hashtag clicks', 'detail expands', 'permalink clicks']]

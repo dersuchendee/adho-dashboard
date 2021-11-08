@@ -9,6 +9,7 @@ import callbacks
 
 # Define basic structure of app:
 # A horizontal navigation bar on the left side with page content on the right.
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     nav_bar(),

@@ -18,15 +18,34 @@ by_month.index = pd.PeriodIndex(by_month.index)
 df_month = by_month.rename_axis('month').reset_index(name='counts')
 df_month['month'] = df_month['month'].astype(str)
 print(df_month)
+
 df_july = pd.read_csv('daily_tweet_activity_metrics_ADHOrg_20210701_20210731_en.csv')
+df_august = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210801_20210901_en.csv")
+df_september =  pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210901_20211001_en.csv")
+df_october = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20211001_20211101_en.csv")
 #print(df_july.columns)
 july = df_july[['Date', 'Tweets published']].copy()
+august = df_august[['Date', 'Tweets published']].copy()
+september = df_september[['Date', 'Tweets published']].copy()
+october = df_october[['Date', 'Tweets published']].copy()
 july['Date'] = pd.to_datetime(july['Date']).dt.to_period('M')
+august['Date'] = pd.to_datetime(august['Date']).dt.to_period('M')
+september['Date'] = pd.to_datetime(september['Date']).dt.to_period('M')
+october['Date'] = pd.to_datetime(october['Date']).dt.to_period('M')
 july.columns=['month', 'counts']
+august.columns=['month', 'counts']
+september.columns=['month', 'counts']
+october.columns=['month', 'counts']
 df1 = july.groupby('month', as_index=False)['counts'].sum()
-merged_df = pd.concat([df_month, df1])
+df2 = august.groupby('month', as_index=False)['counts'].sum()
+df3 = september.groupby('month', as_index=False)['counts'].sum()
+df4 = october.groupby('month', as_index=False)['counts'].sum()
+
+
+
+merged_df = pd.concat([df_month, df1, df2, df3, df4])
 print(merged_df)
-merged_df.to_csv('activity_07_2021.csv')
+merged_df.to_csv('activity_07080910_2021.csv')
 #df_month.to_csv('activity_timeline.csv')
 #fig = px.line(df_month, x = 'month', y = 'counts', title='Tweets per month')
 #fig.show()
@@ -58,7 +77,7 @@ new_retweets = retweets.replace(to_replace =regex, value = '', regex = True)
 new_retweets['quote_url'] = new_retweets['quote_url'].apply(lambda x: x.replace('https://twitter.com/','').replace('/status',''))
 
 nrt = new_retweets.value_counts().rename_axis('quote_url').reset_index(name='count')
-#nrt.to_csv('most_retweeted.csv')
+nrt.to_csv('most_retweeted.csv')
 
 #print(nrt)
 
@@ -207,6 +226,6 @@ df_new['mentions_list'] = df_new['mentions_list'].astype(str).str.replace(']',''
 
 #check
 print(mention_list_df)
-#mention_list_df.to_csv('most_mentioned.csv')
+mention_list_df.to_csv('most_mentioned.csv')
 
 

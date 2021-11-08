@@ -13,8 +13,11 @@ analytics_april = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210401_2021
 analytics_may = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210501_20210601_en.csv")
 analytics_june = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210601_20210701_en.csv")
 analytics_july = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210701_20210731_en.csv")
+analytics_august = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210801_20210901_en.csv")
+analytics_september = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20210901_20211001_en.csv")
+analytics_october = pd.read_csv("daily_tweet_activity_metrics_ADHOrg_20211001_20211101_en.csv")
 
-frames = [analytics_march, analytics_april, analytics_may, analytics_june, analytics_july]
+frames = [analytics_april, analytics_may, analytics_june, analytics_july, analytics_august, analytics_september, analytics_october]
 analytics_total = pd.concat(frames)
 #print(analytics_total.head())
 df_new = analytics_total[['Date','impressions','engagements','engagement rate','retweets','replies','likes', 'user profile clicks', 'url clicks', 'hashtag clicks', 'detail expands', 'permalink clicks']]
@@ -60,7 +63,7 @@ print(f'''Basic stats about the dataset:
 \nThe full dataset includes all tweets between {earliest_tweet} , and, {latest_tweet}.
 \nThere are {len(df_new)} tweets in the dataset.
 ''')
-#df_new.to_csv('engagement.csv')
+df_new.to_csv('engagement.csv')
 #engagement rate column
 fig = plt.figure(figsize=(8,10))
 df_new['engagement_rate'].plot.box()
@@ -116,7 +119,7 @@ week_mean = weekday_grouped.mean().sort_values(by="day")
 week_mean_norm = StandardScaler().fit_transform(week_mean.values)
 week_mean_norm_df = pd.DataFrame(week_mean_norm, columns=week_mean.columns, index= week_mean.index)
 print(week_mean_norm_df)
-#week_mean_norm_df.to_csv('week_mean.csv')
+week_mean_norm_df.to_csv('week_mean.csv')
 
 
 def plot_means_by_weekday(dataframe, variable_1, variable_2=None, variable_3=None):
@@ -186,7 +189,7 @@ plt.show()
 s = week_impressions['count']/week_impressions['mean']
 week_impressions['ratio'] = s
 #print(week_impressions)
-#week_impressions.to_csv('week_impressions.csv')
+week_impressions.to_csv('week_impressions.csv')
 
 #plot the ratios
 #plot mean impressions
