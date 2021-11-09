@@ -22,16 +22,16 @@ app.title = 'ADHO Social Media Dashboard'
 #most_liked = pd.read_csv('most_liked.csv')
 #most_replied = pd.read_csv('most_replied.csv')
 #most_retweeted = pd.read_csv('most_retweeted.csv')
-most_used_hashtags = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/popular_hashtags.csv') #done
+most_used_hashtags = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/popular_hashtags.csv') #done
 #best_hours = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/best_hours.csv') #done
-best_hours = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/hours_stats.csv')
+best_hours = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/hours_stats.csv')
 activity_timeline = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/activity_07080910_2021.csv') #done
-week_stats = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/week_mean.csv')
-week_impressions = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/week_impressions.csv')
-engagement = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/engagement.csv')
-most_mentioned=pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/most_mentioned.csv')
-most_retweeted=pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/most_retweeted.csv')
-correlations = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/Twitter/main/correlations.csv')
+week_stats = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/week_mean.csv')
+week_impressions = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/week_impressions.csv')
+engagement = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/engagement.csv')
+most_mentioned=pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/most_mentioned.csv')
+most_retweeted=pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/most_retweeted.csv')
+correlations = pd.read_csv('https://raw.githubusercontent.com/dersuchendee/adho-dashboard/main/correlations.csv')
 facebook1 =  pd.read_csv(io.StringIO("""Paesi_principali,Value,iso_alpha
 Stati Uniti,16.6,US
 Italia,10.6,IT
